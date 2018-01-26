@@ -101,10 +101,10 @@ std::vector<int> range(int beg,int end, int stride=1)
 
 ///////////////////// Type Conversion /////////////////////
 
-int INT(std::string arg, int base = 10)
+long long INT(std::string arg, int base = 10)
 {
 		try{
-			return stoi(arg,nullptr,base);
+			return stoll(arg,nullptr,base);
 		}
 		catch(std::exception& e){
 			std::cerr<<"Invalid std::string to int conversion!";
@@ -112,7 +112,20 @@ int INT(std::string arg, int base = 10)
 		}
 }
 
-int INT(auto arg)
+long long INT(auto arg)
 {
-		return (int) arg;
+		return (long long) arg;
 }
+
+std::string bin(auto arg)
+{
+	std::string _return = "0b";
+	while(arg)
+	{
+		_return += arg%2 + 48;
+		arg>>=1;
+	}
+	return _return;
+}
+
+inline std::string str(auto arg){ return std::to_string(arg);}
