@@ -13,6 +13,9 @@ range()
 INT()
 ```
 
+Tested on GCC 7.2.0
+
+
 # Example code:
 
 ```CPP
