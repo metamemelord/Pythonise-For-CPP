@@ -112,10 +112,7 @@ long long INT(std::string arg, int base = 10)
 		}
 }
 
-long long INT(auto arg)
-{
-		return (long long) arg;
-}
+inline long long INT(auto arg){ return (long long) arg; }
 
 std::string bin(auto arg)
 {
