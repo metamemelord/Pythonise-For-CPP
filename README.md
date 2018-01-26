@@ -11,6 +11,8 @@ print()
 split()
 range()
 INT()
+bin()
+str()
 ```
 
 Tested on GCC 7.2.0
