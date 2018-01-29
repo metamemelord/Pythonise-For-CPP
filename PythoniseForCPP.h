@@ -2,11 +2,22 @@
 #include<bits/stdc++.h>
 #endif
 
+#define append push_back
+#define in : 
 #define FOR(i,n) for(i=0;i<n;i++)
 
 inline const char* type(auto arg) { return typeid(arg).name(); }
 
 inline int len(auto arg){ return arg.size();}
+
+bool isFloat(auto arg)
+{
+	const char* _type = typeid(arg).name();
+	bool _return = typeid(arg).name() == typeid(double).name();
+	_return |= _type == typeid(float).name();
+	_return |= _type == typeid(long double).name();
+	return _return;
+}
 
 bool checkPrim(auto arg)
 {
@@ -42,6 +53,23 @@ bool checkPrim(auto arg)
 	return _return;
 }
 
+///////////////////// Algorithms /////////////////////
+
+namespace py{
+	template <class T>
+	void sort(T &a, bool reverse = 0)
+	{
+		if(!reverse) std::sort(a.begin(),a.end());
+		else std::sort(a.rbegin(),a.rend());
+	}
+	
+	template <class T>
+	void reverse(T &a)
+	{
+		std::reverse(a.begin(),a.end());
+	}
+}
+
 ///////////////////// IO Functions /////////////////////
 
 std::string input()
@@ -53,7 +81,11 @@ std::string input()
 
 void print(auto arg,char _end='\n')
 {
-	if(checkPrim(arg)) std::cout<<arg<<_end;
+	if(checkPrim(arg)) 
+	{
+		if(isFloat(arg)) printf("%.6f%c",arg,_end);
+		else std::cout<<arg<<_end;
+	}
 }
 
 void print(auto arg, int size, char _end = '\n')
@@ -101,7 +133,8 @@ std::vector<int> range(int beg,int end, int stride=1)
 
 ///////////////////// Type Conversion /////////////////////
 
-long long INT(std::string arg, int base = 10)
+
+long long INT(std::string &arg, int base = 10)
 {
 		try{
 			return stoll(arg,nullptr,base);
@@ -112,7 +145,44 @@ long long INT(std::string arg, int base = 10)
 		}
 }
 
-inline long long INT(auto arg){ return (long long) arg; }
+template<class T>
+long long INT(T* arg, int base = 10)
+{
+		try{
+			return atoi(arg);
+		}
+		catch(std::exception& e){
+			std::cerr<<"Invalid std::string to int conversion!";
+			exit(0);
+		}
+}
+
+inline long long INT(auto arg){return (long long) arg;}
+
+double FLOAT(std::string &arg)
+{
+		try{
+			return stod(arg);
+		}
+		catch(std::exception& e){
+			std::cerr<<"Invalid std::string to floating point conversion!";
+			exit(0);
+		}
+}
+
+template<class T>
+double FLOAT(T* arg)
+{
+		try{
+			return atof(arg);
+		}
+		catch(std::exception& e){
+			std::cerr<<"Invalid std::string to floating point conversion!";
+			exit(0);
+		}
+}
+
+inline double FLOAT(auto arg){ return (double) arg; }
 
 std::string bin(auto arg)
 {
