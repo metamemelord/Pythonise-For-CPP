@@ -28,8 +28,8 @@ Tested on GCC 7.2.0
 
 int main()
 {
-    int n = INT(input()) + INT(input());
-    for(int i in range(n)) print(i);
+    auto n = INT(input()) + INT(input());
+    for(auto i in range(n)) print(i);
     return 0;
 }
 ```
