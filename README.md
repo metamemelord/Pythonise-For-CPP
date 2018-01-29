@@ -4,15 +4,18 @@ THIS IS A FREE TO USE LIBRARY THAT CONTAINS PYTHON LIKE SYNTAXES FOR C++.
 
 THE FOLLOWING FUNCTIONALITIES ARE PROVIDED (MORE WILL BE REGULARLY):
 ```
-type(<variable-name>)
-len(<variable-name>)
+type(<variable>)
+len(<STL container>)
 input()
 print()
 split()
 range()
 INT()
+FLOAT()
 bin()
 str()
+
+Namespace "py" which contains definition of algorithms like, sort(<STL container>, Boolean Reverse) and reverse(<STL container>).
 ```
 
 Tested on GCC 7.2.0
@@ -26,7 +29,7 @@ Tested on GCC 7.2.0
 int main()
 {
     int n = INT(input()) + INT(input());
-    for(int i:range(n)) print(i);
+    for(int i in range(n)) print(i);
     return 0;
 }
 ```
