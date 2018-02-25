@@ -134,7 +134,7 @@ std::vector<int> range(int beg,int end, int stride=1)
 ///////////////////// Type Conversion /////////////////////
 
 
-long long INT(std::string &arg, int base = 10)
+long long INT(std::string arg, int base = 10)
 {
 		try{
 			return stoll(arg,nullptr,base);
@@ -159,7 +159,7 @@ long long INT(T* arg, int base = 10)
 
 inline long long INT(auto arg){return (long long) arg;}
 
-double FLOAT(std::string &arg)
+double FLOAT(std::string arg)
 {
 		try{
 			return stod(arg);
